@@ -42,7 +42,8 @@
         <composite.revision>${project.version}</composite.revision>
         <composite.partition>default</composite.partition>
         <serverUrl>http://localhost:7001</serverUrl>
-        <user>user1</user>
+        <user>weblogic</user>
+        <password>welcome1</password>
         <overwrite>true</overwrite>
         <forceDefault>true</forceDefault>
         <regenerateRulebase>false</regenerateRulebase>
@@ -75,6 +76,7 @@
                     <compositeRevision>${composite.revision}</compositeRevision>
                     <revision>${composite.revision}</revision>
                     <scacInputDir>${scac.input.dir}</scacInputDir>
+                    <serverUrl>${serverUrl}</serverUrl>
                     <!-- Uncomment the appHome property if your composite 
                          depends on MDS. -->
                     <!--<appHome>${project.basedir}/..</appHome>-->
