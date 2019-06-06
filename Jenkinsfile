@@ -39,8 +39,8 @@ node{
 		//}
 	}
 
-	stage('Package'){
-		echo 'maven compile'
+	stage('Pacakge'){
+		echo 'maven Pacakge'
 		// va lire dans le fichier settings.xml de Maven (binaire installé/utilisé, repertoire conf)
 		// le nom fileid importe peu, c'est un identifiant local
 		//configFileProvider(
@@ -57,14 +57,14 @@ node{
 		//	}
 	}
 	
-	//stage('deploy'){
-		//echo 'maven deploy to local env'
+	stage('deploy'){
+		echo 'maven deploy to local env'
 		//configFileProvider([
 		//	configFile(fileId='settings.xml', variable='MAVEN_SETTINGS')]){
-				bat "mvn deploy ${params.MAVEN_OPTIONS}"
-		//	}
+		//		bat "mvn deploy ${params.MAVEN_OPTIONS}"
+		//}
 		
-	//}
+	}
 
 
 
