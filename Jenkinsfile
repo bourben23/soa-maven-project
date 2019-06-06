@@ -57,14 +57,14 @@ node{
 		//	}
 	}
 	
-	stage('deploy'){
-		echo 'maven deploy to local env'
+	//stage('deploy'){
+		//echo 'maven deploy to local env'
 		//configFileProvider([
 		//	configFile(fileId='settings.xml', variable='MAVEN_SETTINGS')]){
 				bat "mvn deploy ${params.MAVEN_OPTIONS}"
 		//	}
 		
-	}
+	//}
 
 
 
