@@ -42,6 +42,7 @@
         <composite.revision>${project.version}</composite.revision>
         <composite.partition>default</composite.partition>
         <serverUrl>${serverUrl}</serverUrl>
+        <user>user1</user>
         <overwrite>true</overwrite>
         <forceDefault>true</forceDefault>
         <regenerateRulebase>false</regenerateRulebase>

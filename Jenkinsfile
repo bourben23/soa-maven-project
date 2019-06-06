@@ -14,17 +14,38 @@ node{
 	stage('Checkout'){
 		echo 'git retrieve application from distant repo'
 		checkout scm
+		bat "git pull --all"
 		bat "git checkout ${params.GIT_BRANCH}"
 	}
 
-	stage('Package'){
-		echo 'maven clean package'
+	stage('Clean'){
+		echo 'maven clean'
 		// va lire dans le fichier settings.xml de Maven (binaire installé/utilisé, repertoire conf)
 		// le nom fileid importe peu, c'est un identifiant local
 		//configFileProvider(
        	// 	[configFile(fileId: 'maven-settings', variable: 'MAVEN_SETTINGS')]) {
 		
-				bat "mvn clean package -e -X -U ${params.MAVEN_OPTIONS}"
+				bat "mvn clean ${params.MAVEN_OPTIONS}"
+		//}
+	}
+
+	stage('Compile'){
+		echo 'maven compile'
+		// va lire dans le fichier settings.xml de Maven (binaire installé/utilisé, repertoire conf)
+		// le nom fileid importe peu, c'est un identifiant local
+		//configFileProvider(
+       	// 	[configFile(fileId: 'maven-settings', variable: 'MAVEN_SETTINGS')]) {
+				bat "mvn compile ${params.MAVEN_OPTIONS}"
+		//}
+	}
+
+	stage('Package'){
+		echo 'maven compile'
+		// va lire dans le fichier settings.xml de Maven (binaire installé/utilisé, repertoire conf)
+		// le nom fileid importe peu, c'est un identifiant local
+		//configFileProvider(
+       	// 	[configFile(fileId: 'maven-settings', variable: 'MAVEN_SETTINGS')]) {
+				bat "mvn package ${params.MAVEN_OPTIONS}"
 		//}
 	}
 
@@ -32,7 +53,7 @@ node{
 		echo 'maven pre-integration-test'
 		//configFileProvider([
 		//	configFile(fileId='settings.xml', variable='MAVEN_SETTINGS')]){
-				bat "mvn pre-integration-test -e -X -U -Duser="weblogic" -Dpassword="welcome1" ${params.MAVEN_OPTIONS}"
+				bat "mvn pre-integration-test ${params.MAVEN_OPTIONS}"
 		//	}
 	}
 	
@@ -40,7 +61,7 @@ node{
 		echo 'maven deploy to local env'
 		//configFileProvider([
 		//	configFile(fileId='settings.xml', variable='MAVEN_SETTINGS')]){
-				bat "mvn deploy -e -X -U ${params.MAVEN_OPTIONS}"
+				bat "mvn deploy ${params.MAVEN_OPTIONS}"
 		//	}
 		
 	}
