@@ -41,9 +41,9 @@
         <composite.name>${project.artifactId}</composite.name>
         <composite.revision>${project.version}</composite.revision>
         <composite.partition>default</composite.partition>
-        <serverUrl>http://localhost:7101</serverUrl>
-        <user>weblogic</user>
-        <password>welcome1</password>
+        <serverUrl>${serverUrl}</serverUrl>
+        <user>${user}</user>
+        <password>${password}</password>
         <overwrite>true</overwrite>
         <forceDefault>true</forceDefault>
         <regenerateRulebase>false</regenerateRulebase>
@@ -73,6 +73,8 @@
                     <composite>${scac.input}</composite>
                     <sarLocation>${scac.output.dir}/sca_${project.artifactId}_rev${project.version}.jar</sarLocation>
                     <serverUrl>${serverUrl}</serverUrl>
+                    <user>${user}</user>
+                    <password>${password}</password>
                     <!-- note: compositeRevision is needed to package, revision is needed to undeploy -->
                     <compositeRevision>${composite.revision}</compositeRevision>
                     <revision>${composite.revision}</revision>
