@@ -14,7 +14,7 @@ node{
 	stage('Checkout'){
 		echo 'git retrieve application from distant repo'
 		checkout scm
-		bat "git checkout -v ${params.GIT_BRANCH}"
+		bat "git checkout ${params.GIT_BRANCH}"
 	}
 
 	stage('Package'){
