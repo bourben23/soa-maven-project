@@ -42,8 +42,6 @@
         <composite.revision>${project.version}</composite.revision>
         <composite.partition>default</composite.partition>
         <serverUrl>${serverUrl}</serverUrl>
-        <user>${user}</user>
-        <password>${password}</password>
         <overwrite>true</overwrite>
         <forceDefault>true</forceDefault>
         <regenerateRulebase>false</regenerateRulebase>
@@ -56,7 +54,7 @@
         <scatest.result>${scac.output.dir}/testResult</scatest.result>
         <!--  input is the name of the composite to run test suties against -->
         <input>soa-maven-project</input>
-        <settingsXmlServerId>local</settingsXmlServerId>
+        <settingsXmlServerId>soa-local</settingsXmlServerId>
     </properties>
 
     <!--
@@ -74,8 +72,6 @@
                     <composite>${scac.input}</composite>
                     <sarLocation>${scac.output.dir}/sca_${project.artifactId}_rev${project.version}.jar</sarLocation>
                     <serverUrl>${serverUrl}</serverUrl>
-                    <user>${user}</user>
-                    <password>${password}</password>
                     <!-- note: compositeRevision is needed to package, revision is needed to undeploy -->
                     <compositeRevision>${composite.revision}</compositeRevision>
                     <revision>${composite.revision}</revision>
