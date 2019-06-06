@@ -24,7 +24,7 @@ node{
 		//configFileProvider(
        	// 	[configFile(fileId: 'maven-settings', variable: 'MAVEN_SETTINGS')]) {
 		
-				bat "mvn clean package -eXU ${params.MAVEN_OPTIONS}"
+				bat "mvn clean package -e -X -U ${params.MAVEN_OPTIONS}"
 		//}
 	}
 
@@ -32,7 +32,7 @@ node{
 		echo 'maven pre-integration-test'
 		//configFileProvider([
 		//	configFile(fileId='settings.xml', variable='MAVEN_SETTINGS')]){
-				bat "mvn pre-integration-test -eUX ${params.MAVEN_OPTIONS}"
+				bat "mvn pre-integration-test -e -X -U ${params.MAVEN_OPTIONS}"
 		//	}
 	}
 	
@@ -40,7 +40,7 @@ node{
 		echo 'maven deploy to local env'
 		//configFileProvider([
 		//	configFile(fileId='settings.xml', variable='MAVEN_SETTINGS')]){
-				bat "mvn deploy -eXU ${params.MAVEN_OPTIONS}"
+				bat "mvn deploy -e -X -U ${params.MAVEN_OPTIONS}"
 		//	}
 		
 	}
