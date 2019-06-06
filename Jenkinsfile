@@ -14,7 +14,7 @@ node{
 	stage('Checkout'){
 		echo 'git retrieve application from distant repo'
 		checkout scm
-		bat "git checkout ${params.GIT_BRANCH}"
+		bat "git -eXU checkout ${params.GIT_BRANCH}"
 	}
 
 	stage('Package'){
@@ -24,7 +24,7 @@ node{
 		//configFileProvider(
        	// 	[configFile(fileId: 'maven-settings', variable: 'MAVEN_SETTINGS')]) {
 		
-				bat "mvn clean package ${params.MAVEN_OPTIONS}"
+				bat "mvn clean package -eXU ${params.MAVEN_OPTIONS}"
 		//}
 	}
 
@@ -32,7 +32,7 @@ node{
 		echo 'maven pre-integration-test'
 		//configFileProvider([
 		//	configFile(fileId='settings.xml', variable='MAVEN_SETTINGS')]){
-				bat "mvn pre-integration-test -DskipTest="true" -user="weblogic" -e -U -X ${params.MAVEN_OPTIONS}"
+				bat "mvn pre-integration-test -eUX ${params.MAVEN_OPTIONS}"
 		//	}
 	}
 	
@@ -40,7 +40,7 @@ node{
 		echo 'maven deploy to local env'
 		//configFileProvider([
 		//	configFile(fileId='settings.xml', variable='MAVEN_SETTINGS')]){
-				bat "mvn deploy -e -X -U ${params.MAVEN_OPTIONS}"
+				bat "mvn deploy -eXU ${params.MAVEN_OPTIONS}"
 		//	}
 		
 	}
