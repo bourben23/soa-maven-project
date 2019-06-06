@@ -32,7 +32,7 @@ node{
 		echo 'maven deploy to local env'
 		//configFileProvider([
 		//	configFile(fileId='settings.xml', variable='MAVEN_SETTINGS')]){
-				bat "mvn pre-integration-test ${params.MAVEN_OPTIONS}"
+				bat "mvn integration-test ${params.MAVEN_OPTIONS}"
 		//	}
 	}
 	
