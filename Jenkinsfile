@@ -40,7 +40,7 @@ node{
 		echo 'maven deploy to local env'
 		//configFileProvider([
 		//	configFile(fileId='settings.xml', variable='MAVEN_SETTINGS')]){
-				bat "mvn deploy -e -X ${params.MAVEN_OPTIONS}"
+				bat "mvn deploy -e -X -U ${params.MAVEN_OPTIONS}"
 		//	}
 		
 	}
