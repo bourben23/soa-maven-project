@@ -56,6 +56,7 @@
         <scatest.result>${scac.output.dir}/testResult</scatest.result>
         <!--  input is the name of the composite to run test suties against -->
         <input>soa-maven-project</input>
+        <settingsXmlServerId>local</settingsXmlServerId>
     </properties>
 
     <!--
