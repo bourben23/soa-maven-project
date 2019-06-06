@@ -71,7 +71,6 @@
                     <compositeName>soa-maven-project</compositeName>
                     <composite>${scac.input}</composite>
                     <sarLocation>${scac.output.dir}/sca_${project.artifactId}_rev${project.version}.jar</sarLocation>
-                    <serverUrl>${serverUrl}</serverUrl>
                     <!-- note: compositeRevision is needed to package, revision is needed to undeploy -->
                     <compositeRevision>${composite.revision}</compositeRevision>
                     <revision>${composite.revision}</revision>
