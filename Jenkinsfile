@@ -24,15 +24,15 @@ node{
 		//configFileProvider(
        	// 	[configFile(fileId: 'maven-settings', variable: 'MAVEN_SETTINGS')]) {
 		
-				bat "mvn clean package -DskipTests=true ${params.MAVEN_OPTIONS}"
+				bat "mvn clean package ${params.MAVEN_OPTIONS}"
 		//}
 	}
 
 	stage('pre-integration'){
-		echo 'maven deploy to local env'
+		echo 'maven pre-integration-test'
 		//configFileProvider([
 		//	configFile(fileId='settings.xml', variable='MAVEN_SETTINGS')]){
-				bat "mvn pre-integration-test -e -U -X ${params.MAVEN_OPTIONS}"
+				bat "mvn pre-integration-test -DskipTest="true" -user="weblogic" -e -U -X ${params.MAVEN_OPTIONS}"
 		//	}
 	}
 	
