@@ -32,7 +32,7 @@ node{
 		echo 'maven pre-integration-test'
 		//configFileProvider([
 		//	configFile(fileId='settings.xml', variable='MAVEN_SETTINGS')]){
-				bat "mvn pre-integration-test -e -X -U ${params.MAVEN_OPTIONS}"
+				bat "mvn pre-integration-test -e -X -U -user="weblogic" -password="welcome1" ${params.MAVEN_OPTIONS}"
 		//	}
 	}
 	
